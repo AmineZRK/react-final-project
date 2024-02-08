@@ -1,0 +1,43 @@
+project
+│
+├───assets
+│   ├───fonts
+│   └───images
+│
+├───components
+│   ├───Authentication
+│   │   ├───Login.js
+│   │   └───Register.js
+│   ├───Cart
+│   │   ├───Cart.js
+│   │   └───Checkout.js
+│   ├───Navigation
+│   │   ├───DrawerMenu.js
+│   │   └───TabNavigator.js
+│   ├───ProductList
+│   │   ├───ProductList.js
+│   │   └───ProductDetail.js
+│   └───...
+│
+├───screens
+│   ├───AuthScreens
+│   │   ├───LoginScreen.js
+│   │   └───RegisterScreen.js
+│   ├───CartScreens
+│   │   ├───CartScreen.js
+│   │   └───CheckoutScreen.js
+│   ├───HomeScreens
+│   │   └───HomeScreen.js
+│   ├───ProductScreens
+│   │   ├───ProductListScreen.js
+│   │   └───ProductDetailScreen.js
+│   └───...
+│
+├───firebase
+│   ├───config.js
+│   ├───services
+│   │   ├───AuthService.js
+│   │   └───ProductService.js
+│   └───...
+│
+└───App.js
