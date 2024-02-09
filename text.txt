@@ -31,7 +31,7 @@ project
 │   ├───ProductScreens
 │   │   ├───ProductListScreen.js
 │   │   └───ProductDetailScreen.js
-│   └───...
+│   └───AuthPage.js  
 │
 ├───firebase
 │   ├───config.js
