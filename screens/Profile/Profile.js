@@ -1,12 +1,12 @@
 import React from 'react';
 import { View,Text } from 'react-native';
 
-const CartScreen = () => {
+const Profile = () => {
     return (
       <View>
-        <Text>this is cart</Text>
+        <Text>this is Profile</Text>
       </View>
     );
   };
 
-  export default CartScreen
+  export default Profile

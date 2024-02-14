@@ -1,6 +1,8 @@
+// Register.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import AuthService from '../../firebase/services/AuthService';
+import CustomInput from '../Input/CustomInput';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -31,41 +33,33 @@ const Register = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Register</Text>
-      <View style={styles.inlineInputs}>
-        <TextInput
-          style={[styles.input, styles.inlineInput]}
-          placeholder="First Name"
-          value={firstName}
-          onChangeText={setFirstName}
-        />
-        <TextInput
-          style={[styles.input, styles.inlineInput]}
-          placeholder="Last Name"
-          value={lastName}
-          onChangeText={setLastName}
-        />
-      </View>
-      <TextInput
-        style={styles.input}
+      <CustomInput
+        placeholder="First Name"
+        value={firstName}
+        onChangeText={setFirstName}
+      />
+      <CustomInput
+        placeholder="Last Name"
+        value={lastName}
+        onChangeText={setLastName}
+      />
+      <CustomInput
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Phone Number"
         value={phoneNumber}
         onChangeText={setPhoneNumber}
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Birth Date"
         value={birthDate}
         onChangeText={setBirthDate}
@@ -83,22 +77,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-  },
-  input: {
-    width: '85%',
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  inlineInputs: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  inlineInput: {
-    width: '48%', // Adjust as needed
   },
 });
 

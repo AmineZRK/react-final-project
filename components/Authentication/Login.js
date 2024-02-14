@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import AuthService from '../../firebase/services/AuthService';
+import CustomInput from '../Input/CustomInput';
 
-
-const Login = ({ navigation }) => { // Receive navigation as a prop
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,24 +11,21 @@ const Login = ({ navigation }) => { // Receive navigation as a prop
     try {
       const uid = await AuthService.login(email, password);
       const userData = await AuthService.getUserData(uid);
-      navigation.navigate('HomeScreen');
+      navigation.navigate('MainNavigator'); // Navigate to the Home screen
     } catch (error) {
       console.error('Login Error:', error);
     }
   };
-  
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
@@ -41,22 +38,12 @@ const Login = ({ navigation }) => { // Receive navigation as a prop
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
   },
 });
 

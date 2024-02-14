@@ -1,34 +1,28 @@
-import React,{ useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Login from '../components/Authentication/Login';
 import Register from '../components/Authentication/Register';
 
-const AuthPage = ({ navigation }) => { // Receive navigation as a prop
+const AuthPage = ({ navigation }) => {
   const [activeButton, setActiveButton] = useState('login');
 
-  const handleLoginButtonPress = () => {
-    setActiveButton('login');
-  };
-
-  const handleRegisterButtonPress = () => {
-    setActiveButton('register');
+  const handleSwitchChange = (value) => {
+    setActiveButton(value);
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <Button
-          title="Login"
-          onPress={handleLoginButtonPress}
-          disabled={activeButton === 'login'}
-          color={activeButton === 'login' ? '#888' : '#007bff'}
-        />
-        <Button
-          title="Register"
-          onPress={handleRegisterButtonPress}
-          disabled={activeButton === 'register'}
-          color={activeButton === 'register' ? '#888' : '#28a745'}
-        />
+      <View style={styles.switchContainer}>
+        <TouchableOpacity
+          style={[styles.switchOption, activeButton === 'login' && styles.activeOption]}
+          onPress={() => handleSwitchChange('login')}>
+          <Text style={styles.optionText}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.switchOption, activeButton === 'register' && styles.activeOption]}
+          onPress={() => handleSwitchChange('register')}>
+          <Text style={styles.optionText}>Register</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.formContainer}>
         {activeButton === 'login' ? <Login navigation={navigation} /> : <Register />}
@@ -43,14 +37,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f0f0f0',
     padding: 20,
-    marginTop:50
+    marginTop: 50,
   },
-  buttonContainer: {
+  switchContainer: {
     flexDirection: 'row',
     marginBottom: 20,
   },
+  switchOption: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: '#007bff',
+    borderRadius: 20,
+    marginHorizontal: 5,
+  },
+  activeOption: {
+    backgroundColor: '#ddd',
+  },
+  optionText: {
+    color: '#fff',
+  },
   formContainer: {
-    width:'80%',
+    width: '80%',
     backgroundColor: '#fff',
     padding: 30,
     borderRadius: 10,
@@ -59,10 +66,7 @@ const styles = StyleSheet.create({
     shadowOffset: {
       width: 0,
       height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
+    },}
 });
 
 export default AuthPage;
