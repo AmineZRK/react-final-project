@@ -1,39 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
-import ProductService from '../../firebase/services/ProductService';
+import { View, Text, FlatList, StyleSheet, Image,TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const [productsByCategory, setProductsByCategory] = useState({});
+  const navigation = useNavigation();
 
   useEffect(() => {
-    // Fetch products from Firestore when the component mounts
     const fetchProducts = async () => {
       try {
-        const productList = await ProductService.getAllProducts();
-        setProducts(productList);
+        const response = await fetch('http://192.168.1.116:5000/api/v1/products/');
+        const products = await response.json();
+        console.log(products);
+       
+        groupProductsByCategory(products);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
 
     fetchProducts();
-  }, []);
-
+    
+  }, []); 
+  const groupProductsByCategory = (products) => {
+    const productsByCategoryMap = {};
+    products.forEach((product) => {
+      const category = product.category.name;
+      if (!productsByCategoryMap[category]) {
+        productsByCategoryMap[category] = [];
+      }
+      productsByCategoryMap[category].push(product);
+    });
+    setProductsByCategory(productsByCategoryMap);
+  };
+  
   const renderProductItem = ({ item }) => (
-    <View style={styles.productItem}>
-      <Image source={{ uri: item.photoURL }} style={styles.productImage} />
-      <Text style={styles.productName}>{item.name}</Text>
-      <Text style={styles.productPrice}>${item.price.toFixed(2)}</Text>
+    <TouchableOpacity onPress={() => navigation.navigate('ProductDetail', { productId: item._id })}>
+      <View style={styles.productItem}>
+      {console.log('myyyyy   ',item.images[0])}
+        <Image source={{ uri: item.images[0]}} style={styles.productImage} />
+        <Text style={styles.productTitle}>{item.title}</Text>
+        <Text style={styles.productPrice}>Price: ${item.price}</Text>
+      </View>
+    </TouchableOpacity>
+  ); 
+
+  const renderCategory = ({ item }) => (
+    <View style={styles.categoryContainer}>
+      <Text style={styles.categoryTitle}>{item}</Text>
+      <FlatList
+        data={productsByCategory[item]}
+        renderItem={renderProductItem}
+        keyExtractor={(item) => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
     </View>
   );
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={products}
-        renderItem={renderProductItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.productList}
+        data={Object.keys(productsByCategory)}
+        renderItem={renderCategory}
+        keyExtractor={(item) => item}
       />
     </View>
   );
@@ -41,32 +71,34 @@ const ProductList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     padding: 10,
     backgroundColor: '#fff',
   },
-  productList: {
-    alignItems: 'center',
+  categoryContainer: {
+    marginBottom: 20,
+  },
+  categoryTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   productItem: {
-    alignItems: 'center',
-    marginBottom: 20,
+    marginRight: 10,
   },
   productImage: {
     width: 150,
     height: 150,
-    resizeMode: 'cover',
-    borderRadius: 10,
+    borderRadius: 5,
+    marginBottom: 5,
   },
-  productName: {
-    fontSize: 18,
+  productTitle: {
+    fontSize: 16,
     fontWeight: 'bold',
-    marginTop: 10,
   },
   productPrice: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#888',
-    marginTop: 5,
   },
 });
 

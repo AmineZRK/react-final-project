@@ -1,6 +1,5 @@
 import { collection, addDoc, getFirestore, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import app from '../config'; // Assuming your Firebase app configuration is exported from this file
-
 const firestore = getFirestore(app);
 
 class ProductService {

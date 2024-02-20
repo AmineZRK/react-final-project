@@ -9,19 +9,22 @@ const firestore = getFirestore(app);
 class AuthService {
   static async register(userData) {
     try {
-      const { email, password, firstName, lastName, phoneNumber, birthDate } = userData;
+      const { email, password, firstName, lastName, phoneNumber, birthDate, isAdmin } = userData; // Include isAdmin in userData
+      
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-      const userRef = doc(firestore, 'users', userCredential.user.uid); // Reference to user document
+      
+      // Set user data in Firestore along with the isAdmin field
+      const userRef = doc(firestore, 'users', userCredential.user.uid); 
       const additionalData = {
         email,
         firstName,
         lastName,
         phoneNumber,
         birthDate,
+        isAdmin: isAdmin || false // Set default value of isAdmin to false if not provided
       };
 
-      await setDoc(userRef, additionalData); // Set user data in Firestore
+      await setDoc(userRef, additionalData);
 
       return userCredential.user;
     } catch (error) {

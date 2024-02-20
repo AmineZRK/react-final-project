@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import ProductList from '../../components/ProductList/ProductList';
+import CategoryList from '../../components/CategoriesList/CategoryList';
 
 const HomeScreen = () => {
-  return (
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const handleCategoryPress = (category) => {
+    setSelectedCategory(category);
+  };
+  return ( 
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Our Store</Text>
-      <ProductList />
+      <CategoryList selectedCategory={selectedCategory} handleCategoryPress={handleCategoryPress}/>
+      <ProductList selectedCategory={selectedCategory}/>
     </View>
   );
 };

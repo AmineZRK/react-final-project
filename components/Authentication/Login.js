@@ -1,3 +1,4 @@
+// Login.js
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import AuthService from '../../firebase/services/AuthService';
@@ -11,7 +12,12 @@ const Login = ({ navigation }) => {
     try {
       const uid = await AuthService.login(email, password);
       const userData = await AuthService.getUserData(uid);
-      navigation.navigate('MainNavigator'); // Navigate to the Home screen
+      console.log(userData.isAdmin)
+      if (userData.isAdmin) {
+        navigation.navigate('AdminScreen'); // Navigate to the Admin screen
+      } else {
+        navigation.navigate('MainNavigator'); // Navigate to the main navigator
+      }
     } catch (error) {
       console.error('Login Error:', error);
     }

@@ -11,6 +11,7 @@ const Register = () => {
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false); 
 
   const handleRegister = async () => {
     try {
@@ -21,6 +22,7 @@ const Register = () => {
         lastName,
         phoneNumber,
         birthDate,
+        isAdmin,
       };
       await AuthService.register(userData);
       // Navigate to home screen upon successful registration

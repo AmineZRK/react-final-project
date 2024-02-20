@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Icon, Badge } from 'react-native-elements';
 
-const TopBar = ({ currentScreen }) => {
+const CustomHeader = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>{currentScreen}</Text>
-      <TextInput placeholder="Search" style={styles.searchInput} />
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.title}>My Store</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+        <Icon name='shopping-cart' type='font-awesome' color='#fff' />
+        <Badge value={5} status="error" containerStyle={styles.badge} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -13,18 +19,22 @@ const TopBar = ({ currentScreen }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: 10,
+    justifyContent: 'space-between',
+    paddingTop:45,
+    paddingHorizontal: 25,
+    paddingBottom: 15,
+    backgroundColor: 'red',
   },
-  searchInput: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 5,
-    width: '70%',
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  badge: {
+    position: 'absolute',
+    top: -4,
+    right: -4,
   },
 });
 
-export default TopBar;
+export default CustomHeader;
