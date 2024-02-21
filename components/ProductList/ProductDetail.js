@@ -8,7 +8,7 @@ const ProductDetails = ({ route }) => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`http://192.168.1.116:5000/api/v1/products/${productId}`);
+        const response = await fetch(`http://172.17.0.1:5000/api/v1/products/${productId}`); //Replace by my IP address
         if (!response.ok) {
           throw new Error('Failed to fetch product details');
         }
@@ -59,33 +59,43 @@ const ProductDetails = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff', // Marine Blue Color
   },
   productImage: {
     width: '100%',
     height: 300,
     resizeMode: 'cover',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   productInfoContainer: {
     padding: 20,
+    backgroundColor: '#fff',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   productTitle: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#000', // Black Color
   },
   productPrice: {
     fontSize: 18,
     marginBottom: 10,
+    color: 'green', //color for price
   },
   addToCartButton: {
-    backgroundColor: 'red',
+    backgroundColor: 'darkblue', // Dark Blue Color
     padding: 20,
     alignItems: 'center',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   addToCartButtonText: {
     color: '#fff',
     fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

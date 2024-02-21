@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "65d37ff75c84ff03b439155f"
+  },
+  "name": "shoes",
+  "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3abd01b63e5d5b9f2038b"
+  },
+  "name": "Electronics",
+  "image": "https://img.freepik.com/free-photo/modern-stationary-collection-arrangement_23-2149309649.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3ac3e1b63e5d5b9f2038d"
+  },
+  "name": "Clothing",
+  "image": "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b18c1b63e5d5b9f2038f"
+  },
+  "name": "Snacks",
+  "image": "https://snackfully.co.uk/cdn/shop/files/Untitleddesign-2023-05-24T111626.305_615x615.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b1f31b63e5d5b9f20391"
+  },
+  "name": "Drinks",
+  "image": "https://snackfully.co.uk/cdn/shop/products/Karma_297x297.jpg?v=1674071789",
+  "__v": 0
+}]

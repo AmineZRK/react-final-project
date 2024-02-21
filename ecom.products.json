@@ -1,0 +1,328 @@
+[{
+  "_id": {
+    "$oid": "65d387e81b63e5d5b9f20383"
+  },
+  "title": "Nike",
+  "price": 140,
+  "description": "Product description goes here",
+  "images": [
+    "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/4144c92b-0558-448c-aaa1-31f475a45b9f/chaussure-de-running-sur-route-facile-a-enfiler-revolution-6-flyease-pour-SNbtsR.png"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T16:55:04.689Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T16:55:04.689Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b55d1b63e5d5b9f20394"
+  },
+  "title": "Timberland",
+  "price": 129.99,
+  "description": "Product description goes here",
+  "images": [
+    "https://img01.ztat.net/article/spp-media-p1/49b6fce03c704667ab0d3818d660ad13/a1c1f7019f0b4ba89eb2844c6093e70e.jpg?imwidth=1800&filter=packshot",
+    "https://img01.ztat.net/article/spp-media-p1/c3f775ec28d44f66ae8c5f5f26fdeaea/72132d5dba2645c18144880e805abec2.jpg?imwidth=1800"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:09:01.919Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:09:01.919Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b5f81b63e5d5b9f20397"
+  },
+  "title": "Puma",
+  "price": 59,
+  "description": "Bout de la chaussure: Rond, Forme du talon: Plat, Fermeture: Laçage, Motif / Couleur: Couleur unie",
+  "images": [
+    "https://img01.ztat.net/article/spp-media-p1/8ed0d3ae03ea4d17a40d2721cca8206d/c28e831c32974b1b9e88aa12799b54e0.jpg?imwidth=1800",
+    "https://img01.ztat.net/article/spp-media-p1/28e632ba30184dc59468fbb14588a3b4/73f7b4cb401341c494ba26022bd32b02.jpg?imwidth=1800&filter=packshot"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:11:36.027Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:11:36.027Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b6ab1b63e5d5b9f2039b"
+  },
+  "title": "Lacoste",
+  "price": 130,
+  "description": "Dessus / Tige: Cuir et imitation de cuir, Doublure: Textile, Semelle de propreté: Textile, Semelle d'usure: Matière synthétique, Épaisseur de la doublure: Doublure protégeant du froid, Matière: Cuir synthétique, Conseils d'entretien: Appliquez un imperméabilisant avant la première utilisation",
+  "images": [
+    "https://img01.ztat.net/article/spp-media-p1/dc0d2a1770e740dd8f2828683a68121a/229e6c6c902243c1a16bc3927dd0019d.jpg?imwidth=1800&filter=packshot",
+    "https://img01.ztat.net/article/spp-media-p1/e7f26b8416c1428898626b7167f2e8fc/5a0718d47f8f440a9ec59c15fba445ea.jpg?imwidth=1800"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:14:35.983Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:14:35.983Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b7461b63e5d5b9f2039e"
+  },
+  "title": "AfterGlow Cherry Sour",
+  "price": 2.5,
+  "description": "From Aqua Vitea, one of the country’s most reputable kombucha brands, comes this organic hard version just in time for summer. Combining everything you love about hard seltzer and kombucha, they’re pleasingly fizzy with zippy flavors, natural probiotics, and just enough alcohol to take the edge off a hard day without knocking you out.",
+  "images": [
+    "https://imageio.forbes.com/specials-images/imageserve/60bbc373d588fb43c9f3536a/Aqua-Vitea-AfterGlow-Hard-Kombucha-Cherry-Sour/960x0.jpg?format=jpg&width=1440"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d3b1f31b63e5d5b9f20391"
+    },
+    "name": "Drinks",
+    "image": "https://snackfully.co.uk/cdn/shop/products/Karma_297x297.jpg?v=1674071789"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:17:10.069Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:17:10.070Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b7a11b63e5d5b9f203a1"
+  },
+  "title": "AHA Raspberry",
+  "price": 1.9,
+  "description": "Even if you haven’t seen the new TV commercials starring comedians Lauren Lapkus and Colton Dunn, you’ll understand why they’re gushing (or more accurately, dropping the word \"aha\" as much as possible) over Coca-Cola’s first new brand in over ten years. The cans are inviting and colorful, and there’s lots of carbonation. Plus, the flavors like are bold and unexpected, like the new",
+  "images": [
+    "https://imageio.forbes.com/specials-images/imageserve/60a9b1b3577d92278eb6279f/AHA-Sparkling-Water-Water-in-Raspberry-Acai/960x0.jpg?format=jpg&width=1440"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d3b1f31b63e5d5b9f20391"
+    },
+    "name": "Drinks",
+    "image": "https://snackfully.co.uk/cdn/shop/products/Karma_297x297.jpg?v=1674071789"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:18:41.057Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:18:41.057Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b7e91b63e5d5b9f203a4"
+  },
+  "title": "Athletic Brewing Co",
+  "price": 2,
+  "description": "Turns out: hops, the little cone-shaped flowers that lend beers their pleasantly bitter taste and floral aroma, are just as distinctive when incoporated into seltzers. And in this, the addition of bright and tangy blood orange balances out the hops for a crisp and invigorating drink with no calories or sugar.",
+  "images": [
+    "https://imageio.forbes.com/specials-images/imageserve/60bbb8a2ed38ff55fd0e42f7/Athletic-Brewing-Co--DAYPACK-BLOOD-ORANGE-Hop-Infused-Seltzer/960x0.jpg?format=jpg&width=1440"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d3b1f31b63e5d5b9f20391"
+    },
+    "name": "Drinks",
+    "image": "https://snackfully.co.uk/cdn/shop/products/Karma_297x297.jpg?v=1674071789"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:19:53.962Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:19:53.962Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3b8171b63e5d5b9f203a7"
+  },
+  "title": "Aura Bora Lemongrass",
+  "price": 2.2,
+  "description": "It’s tough to believe that something so thirst-quenching and unique tasting can have zero calories. That’s how satisfying this herbal-based sparkling water is. While it’s lovely drinking as is, the creamy coconut and citrusy lemongrass flavors make it just as good mixed in cocktails and zero-proof drinks.",
+  "images": [
+    "https://imageio.forbes.com/specials-images/imageserve/60a9b25cb2be4109cfb6279f/Aura-Bora-Lemongrass-Coconut-Sparkling-Water/960x0.jpg?format=jpg&width=1440"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d3b1f31b63e5d5b9f20391"
+    },
+    "name": "Drinks",
+    "image": "https://snackfully.co.uk/cdn/shop/products/Karma_297x297.jpg?v=1674071789"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T20:20:39.052Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T20:20:39.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3c8d41b63e5d5b9f203db"
+  },
+  "title": "Azrg",
+  "price": 10,
+  "description": "Adrhjj",
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/react-expo-52df5.appspot.com/o/images%2F1708378245810.jpg?alt=media&token=7f8b273e-cda3-4459-ae80-830f532f1a0f"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T21:32:04.958Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T21:32:04.958Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3c8f81b63e5d5b9f203df"
+  },
+  "title": "Aeeg",
+  "price": 10,
+  "description": "Vkvhj",
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/react-expo-52df5.appspot.com/o/images%2F1708378322411.jpg?alt=media&token=50a64c8e-355f-49c2-916b-5412fd235253"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T21:32:40.951Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T21:32:40.951Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d3c9d71b63e5d5b9f203e3"
+  },
+  "title": "Azer",
+  "price": 20,
+  "description": "Vbvg",
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/react-expo-52df5.appspot.com/o/images%2F1708378580953.jpg?alt=media&token=50e8164c-3231-4ab8-848a-d98f007f7416"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d37ff75c84ff03b439155f"
+    },
+    "name": "shoes",
+    "image": "https://img3.junaroad.com/uiproducts/19720587/zoom_1-1681889786.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-19T21:36:23.115Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-19T21:36:23.115Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d4b4661b63e5d5b9f203ea"
+  },
+  "title": "Chiwis Kiwi Chips",
+  "price": 4,
+  "description": "PER SERVING: 240 calories, 10 g fat (9 g saturated fat), 5 mg sodium, 40 g carbs (8 g fiber, 24 g sugar), 4 g protein",
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/react-expo-52df5.appspot.com/o/images%2F1708438628111.jpg?alt=media&token=851311b0-1777-42cb-871e-043ea166cff3"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d3b18c1b63e5d5b9f2038f"
+    },
+    "name": "Snacks",
+    "image": "https://snackfully.co.uk/cdn/shop/files/Untitleddesign-2023-05-24T111626.305_615x615.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-20T14:17:10.296Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-20T14:17:10.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d4b5531b63e5d5b9f203ef"
+  },
+  "title": "Second Nature",
+  "price": 12,
+  "description": "PER SERVING: 160 calories, 12 g fat (2.5 g saturated fat), 35 mg sodium, 11 g carbs (2 g fiber, 7 g sugar), 4 g protein",
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/react-expo-52df5.appspot.com/o/images%2F1708438865369.jpg?alt=media&token=545943d3-04c8-4f37-b631-3d1753aaaac1"
+  ],
+  "category": {
+    "id": {
+      "$oid": "65d3b18c1b63e5d5b9f2038f"
+    },
+    "name": "Snacks",
+    "image": "https://snackfully.co.uk/cdn/shop/files/Untitleddesign-2023-05-24T111626.305_615x615.jpg"
+  },
+  "creationAt": {
+    "$date": "2024-02-20T14:21:07.871Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-20T14:21:07.871Z"
+  },
+  "__v": 0
+}]

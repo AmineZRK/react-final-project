@@ -8,5 +8,5 @@ const Profile = () => {
       </View>
     );
   };
-
-  export default Profile
+// logout, photo, email, full name, address, edite(if we have more time).
+  export default Profile;

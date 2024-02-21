@@ -9,7 +9,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://192.168.1.116:5000/api/v1/products/');
+        const response = await fetch('http://172.17.0.1:5000/api/v1/products/'); //Replace by my IP address
         const products = await response.json();
         console.log(products);
        
@@ -71,9 +71,9 @@ const ProductList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     padding: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff', // Marine Blue Color
   },
   categoryContainer: {
     marginBottom: 20,
@@ -82,23 +82,30 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#000', // Black Color
   },
   productItem: {
     marginRight: 10,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
+    width: 150,
   },
   productImage: {
-    width: 150,
-    height: 150,
+    width: '100%',
+    height: 100,
     borderRadius: 5,
     marginBottom: 5,
+    resizeMode: 'cover',
   },
   productTitle: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#000', // Black Color
   },
   productPrice: {
     fontSize: 14,
-    color: '#888',
+    color: 'green', // color for price
   },
 });
 

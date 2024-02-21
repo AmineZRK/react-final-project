@@ -19,14 +19,14 @@ const AddProductScreen = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://192.168.1.116:5000/api/v1/category/');
+        const response = await fetch('http://172.17.0.1:5000/api/v1/category/');
         if (!response.ok) {
           throw new Error('Failed to fetch categories');
         }
         const data = await response.json();
-        // data.map((d)=>{
-        //   console.log(d._id);
-        // })
+        data.map((d)=>{
+          console.log(d.name);
+       })
         setCategories(data); // Assuming data is an array of category objects
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -90,7 +90,7 @@ const AddProductScreen = () => {
       };
 
       // Send a POST request to your API endpoint
-      const response = await fetch('http://192.168.1.116:5000/api/v1/products/', {
+      const response = await fetch('http://172.17.0.1:5000/api/v1/category/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const AddProductScreen = () => {
         style={styles.sel}
       >
         {categories.map((category) => (
-          <Picker.Item key={category._id} label={category.name} value={category._id} />
+          <Picker.Item style={styles.pick} key={category._id} label={category.name} value={category._id} />
         ))}
       </Picker>
 
@@ -156,6 +156,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+pick: {
+fontSize: 12,
+},
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -176,6 +179,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     width: '80%',
+    color: 'black',
   },
   image: {
     width: 100,

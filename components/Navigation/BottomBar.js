@@ -22,8 +22,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff', // Marine Blue Color
     paddingVertical: 10,
+  },
+  tabText: {
+    fontSize: 16,
+    color: '#000', // Black Color
   },
 });
 

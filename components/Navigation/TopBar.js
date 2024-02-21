@@ -21,14 +21,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingTop:45,
+    paddingTop: 45,
     paddingHorizontal: 25,
     paddingBottom: 15,
-    backgroundColor: 'red',
+    backgroundColor: '#f0f8ff', // Marine Blue Color
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#000', // Black Color
   },
   badge: {
     position: 'absolute',

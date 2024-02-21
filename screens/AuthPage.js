@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f0f8ff', // Marine Blue Color
     padding: 20,
     marginTop: 50,
   },
@@ -46,15 +46,15 @@ const styles = StyleSheet.create({
   switchOption: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: '#007bff',
+    backgroundColor: '#007bff', // Blue Color
     borderRadius: 20,
     marginHorizontal: 5,
   },
   activeOption: {
-    backgroundColor: '#ddd',
+    backgroundColor: '#ddd', // Light Gray Color
   },
   optionText: {
-    color: '#fff',
+    color: '#fff', // White Color
   },
   formContainer: {
     width: '100%',
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     shadowOffset: {
       width: 0,
       height: 2,
-    },}
+    },
+  },
 });
 
 export default AuthPage;
