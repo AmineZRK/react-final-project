@@ -9,6 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [isAdmin, setIsAdmin] = useState(false); 
@@ -20,6 +21,7 @@ const Register = () => {
         password,
         firstName,
         lastName,
+        address,
         phoneNumber,
         birthDate,
         isAdmin,
@@ -44,6 +46,11 @@ const Register = () => {
         placeholder="Last Name"
         value={lastName}
         onChangeText={setLastName}
+      />
+      <CustomInput
+        placeholder="Address"
+        value={address}
+        onChangeText={setAddress}
       />
       <CustomInput
         placeholder="Email"

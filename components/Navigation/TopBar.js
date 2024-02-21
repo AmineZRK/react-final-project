@@ -9,7 +9,7 @@ const CustomHeader = ({ navigation }) => {
         <Text style={styles.title}>My Store</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-        <Icon name='shopping-cart' type='font-awesome' color='#fff' />
+        <Icon name='shopping-cart' type='font-awesome' color='blue' />
         <Badge value={5} status="error" containerStyle={styles.badge} />
       </TouchableOpacity>
     </View>

@@ -9,7 +9,7 @@ const firestore = getFirestore(app);
 class AuthService {
   static async register(userData) {
     try {
-      const { email, password, firstName, lastName, phoneNumber, birthDate, isAdmin } = userData; // Include isAdmin in userData
+      const { email, password, firstName, lastName, address, phoneNumber, birthDate, isAdmin } = userData; // Include isAdmin in userData
       
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       
@@ -19,6 +19,7 @@ class AuthService {
         email,
         firstName,
         lastName,
+        address,
         phoneNumber,
         birthDate,
         isAdmin: isAdmin || false // Set default value of isAdmin to false if not provided

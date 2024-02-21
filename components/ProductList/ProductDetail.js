@@ -42,7 +42,7 @@ const ProductDetails = ({ route }) => {
   };
 
   const handleAddToCart = () => {
-    // Implement add to cart functionality here
+    
     console.log('Product added to cart');
   };
 
