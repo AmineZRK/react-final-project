@@ -74,6 +74,7 @@ const Register = () => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    
   },
   title: {
     fontSize: 24,

@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
-import { Icon } from 'react-native-elements';
-import { Badge } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { View } from 'react-native';
 
 import AuthPage from './screens/AuthPage';
 import HomeScreen from './screens/HomeScreens/HomeScreen';
@@ -15,12 +13,13 @@ import AddProductScreen from './screens/AdminScreens/AddProductScreen';
 import DeleteProductScreen from './screens/AdminScreens/DeleteProductScreen';
 import UpdateProductScreen from './screens/AdminScreens/UpdateProductScreen';
 import ProductDetail from './components/ProductList/ProductDetail';
-import CustomHeader from './components/Navigation/TopBar';
+import CustomHeader from './components/Navigation/TopBar'; // Updated import
+import Search from './components/search/search';
+import { CartProvider } from './components/Cart/CartContext'; // Import CartProvider
+import CheckoutScreen from './screens/CartScreens/CheckoutScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-
 
 const MainNavigator = () => (
   <Tab.Navigator screenOptions={{ headerShown: false }}>
@@ -32,19 +31,18 @@ const MainNavigator = () => (
           <MaterialIcons name="home" color={color} size={size} />
         ),
         title: 'Home'
-      }}
+      }} 
     />
     <Tab.Screen
-      name="Cart"
-      component={CartScreen}
+      name="Search"
+      component={Search}
       options={{
         tabBarIcon: ({ color, size }) => (
           <View>
-            <MaterialIcons name="shopping-cart" color={color} size={size} />
-            <Badge value={0} status="error" containerStyle={{ position: 'absolute', top: -4, right: -4 }} />
+            <MaterialIcons name="search" color={color} size={size} />
           </View>
         ),
-        title: 'Cart'
+        title: 'Search'
       }}
     />
     <Tab.Screen
@@ -88,20 +86,25 @@ const AdminScreen = () => (
           <MaterialIcons name="update" color={color} size={size} />
         ),
       }}
-    />
+    /> 
   </Tab.Navigator>
 );
    
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: true }}>
-        <Stack.Screen name="AuthPage" component={AuthPage} />
-        <Stack.Screen name="MainNavigator" component={MainNavigator} options={{ header: CustomHeader }}/>
-        <Stack.Screen name="AdminScreen" component={AdminScreen} options={{ header: CustomHeader }} />
-        <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ header: CustomHeader }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <CartProvider> 
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: true }}>
+          <Stack.Screen name="AuthPage" component={AuthPage} />
+          <Stack.Screen name="MainNavigator" component={MainNavigator} options={{ header: ({ navigation }) => <CustomHeader navigation={navigation} /> }}/>
+          <Stack.Screen name="AdminScreen" component={AdminScreen} options={{ header: ({ navigation }) => <CustomHeader navigation={navigation} /> }} />
+          <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ header: ({ navigation }) => <CustomHeader navigation={navigation} /> }} />
+          <Stack.Screen name="Cart" component={CartScreen} options={{ header: ({ navigation }) => <CustomHeader navigation={navigation} /> }} />
+          <Stack.Screen name="Checkout" component={CheckoutScreen} options={{ header: ({ navigation }) => <CustomHeader navigation={navigation} /> }} />
+
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CartProvider>
   );
 };
 
