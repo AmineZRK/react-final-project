@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { useCart } from '../Cart/CartContext'; // Import the useCart hook
+import { useCart } from '../Cart/CartContext';
+import Carousel from 'react-native-snap-carousel'; // Import Carousel from react-native-snap-carousel
 
 const ProductDetails = ({ route }) => {
   const { productId } = route.params;
   const [productDetails, setProductDetails] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Default quantity to 1
-  const { addToCart } = useCart(); // Use the addToCart function from CartContext
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -32,7 +33,16 @@ const ProductDetails = ({ route }) => {
 
     return (
       <ScrollView style={styles.container}>
-        <Image source={{ uri: productDetails.images[0] }} style={styles.productImage} />
+        <Carousel
+          data={productDetails.images}
+          renderItem={({ item }) => (
+            <Image source={{ uri: item }} style={styles.productImage} />
+          )}
+          sliderWidth={400}
+          itemWidth={300}
+          loop
+          autoplay
+        />
         <View style={styles.productInfoContainer}>
           <Text style={styles.productTitle}>{productDetails.title}</Text>
           <Text style={styles.productPrice}>Price: ${productDetails.price}</Text>
@@ -53,13 +63,11 @@ const ProductDetails = ({ route }) => {
     );
   };
 
-  const handleAddToCart = () => { 
-    // Implement add to cart functionality here
+  const handleAddToCart = () => {
     if (!productDetails) return;
-    
-    addToCart(productDetails, quantity); // Call the addToCart function to increment cart count
-    //console.log('Product added to cart:', productDetails);
-  }; 
+
+    addToCart(productDetails, quantity);
+  };
 
   return (
     <View style={styles.container}>

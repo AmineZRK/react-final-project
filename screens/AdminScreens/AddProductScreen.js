@@ -19,7 +19,7 @@ const AddProductScreen = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://192.168.1.116:5000/api/v1/category/');
+        const response = await fetch('http://172.20.10.2:5000/api/v1/category/');
         if (!response.ok) {
           throw new Error('Failed to fetch categories');
         }

@@ -8,6 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [address, setAddress] = useState('');
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthDate, setBirthDate] = useState('');
@@ -19,6 +20,7 @@ const Register = () => {
         password,
         firstName,
         lastName,
+        address,
         phoneNumber,
         birthDate,
       };

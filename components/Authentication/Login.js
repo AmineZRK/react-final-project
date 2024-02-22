@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import AuthService from '../../firebase/services/AuthService';
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 import CustomInput from '../Input/CustomInput';
 
 const Login = ({ navigation }) => {
@@ -12,6 +13,7 @@ const Login = ({ navigation }) => {
     try {
       const uid = await AuthService.login(email, password);
       const userData = await AuthService.getUserData(uid);
+      await AsyncStorage.setItem('userData', JSON.stringify(userData));
       console.log(userData.isAdmin)
       if (userData.isAdmin) {
         navigation.navigate('AdminScreen'); // Navigate to the Admin screen

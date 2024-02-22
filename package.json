@@ -26,6 +26,7 @@
     "react-native-credit-card-input": "^0.4.1",
     "react-native-elements": "^3.4.3",
     "react-native-image-picker": "^7.1.0",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-switch-selector": "^2.3.0",
     "sneaks-api": "^1.2.3"
   },

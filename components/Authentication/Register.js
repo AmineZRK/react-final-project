@@ -1,6 +1,6 @@
 // Register.js
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Platform } from 'react-native';
 import AuthService from '../../firebase/services/AuthService';
 import CustomInput from '../Input/CustomInput';
 
@@ -11,6 +11,7 @@ const Register = () => {
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const [address, setAddress] = useState('');
   const [isAdmin, setIsAdmin] = useState(false); 
 
   const handleRegister = async () => {
@@ -46,9 +47,16 @@ const Register = () => {
         onChangeText={setLastName}
       />
       <CustomInput
+        placeholder="Address"
+        value={address}
+        onChangeText={setAddress}
+      />
+      <CustomInput
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
       />
       <CustomInput
         placeholder="Password"
@@ -60,11 +68,13 @@ const Register = () => {
         placeholder="Phone Number"
         value={phoneNumber}
         onChangeText={setPhoneNumber}
+        keyboardType={Platform.OS === 'ios' ? 'numbers-and-punctuation' : 'phone-pad'}
       />
       <CustomInput
         placeholder="Birth Date"
         value={birthDate}
         onChangeText={setBirthDate}
+        keyboardType={Platform.OS === 'ios' ? 'numbers-and-punctuation' : 'numeric'}
       />
       <Button title="Register" onPress={handleRegister} />
     </View>
@@ -74,7 +84,7 @@ const Register = () => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    
+    padding: 20,
   },
   title: {
     fontSize: 24,

@@ -76,12 +76,12 @@ const AdminScreen = () => (
         tabBarIcon: ({ color, size }) => (
           <MaterialIcons name="delete" color={color} size={size} />
         ),
-      }}
+      }} 
     />
     <Tab.Screen
       name='UpdateProductScreen'
       component={UpdateProductScreen}
-      options={{
+      options={{ 
         tabBarIcon: ({ color, size }) => (
           <MaterialIcons name="update" color={color} size={size} />
         ),
@@ -89,11 +89,11 @@ const AdminScreen = () => (
     /> 
   </Tab.Navigator>
 );
-   
+    
 const App = () => {
   return (
     <CartProvider> 
-      <NavigationContainer>
+      <NavigationContainer> 
         <Stack.Navigator screenOptions={{ headerShown: true }}>
           <Stack.Screen name="AuthPage" component={AuthPage} />
           <Stack.Screen name="MainNavigator" component={MainNavigator} options={{ header: ({ navigation }) => <CustomHeader navigation={navigation} /> }}/>

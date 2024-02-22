@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet, ScrollView } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useCart } from '../../components/Cart/CartContext';
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 import {
   CreditCardInput,
   LiteCreditCardInput,
@@ -24,6 +27,34 @@ const CheckoutScreen = ({ navigation }) => {
   const [cardCVC, setCardCVC] = useState('');
   const [shippingAddress, setShippingAddress] = useState();
 
+
+  useEffect(() => {
+    // Fetch user data from AsyncStorage
+    const fetchUserData = async () => {
+      try {
+        const userData = await AsyncStorage.getItem('userData');
+        console.log(userData);
+        if (userData) {
+          const parsedUserData = JSON.parse(userData);
+          console.log(parsedUserData.firstName);
+          setFirstName(parsedUserData.firstName);
+          setLastName(parsedUserData.lastName || '');
+          setAddressLine1(parsedUserData.address || '');
+          setAddressLine2(parsedUserData.address_2 || '');
+          setCity(parsedUserData.city || '');
+          setCountry(parsedUserData.country || '');
+          setProvince(parsedUserData.province || '');
+          setPostalCode(parsedUserData.postal_code || '');
+          setPhone(parsedUserData.phoneNumber || '');
+          setCompany(parsedUserData.company || '');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
   // Function to handle the user's input
   const handleChange = () => {
     // Creating an object to store the user's input
@@ -72,6 +103,7 @@ const CheckoutScreen = ({ navigation }) => {
         <View style={styles.address}>
           {/* Creating text inputs for the user's information */}
           <TextInput
+            value={firstName}
             onChangeText={(e) => {
               setFirstName(e);
               handleChange();
@@ -80,6 +112,7 @@ const CheckoutScreen = ({ navigation }) => {
             style={styles.input}
           />
           <TextInput
+            value={lastName}
             onChangeText={(e) => {
               setLastName(e);
               handleChange();
@@ -88,6 +121,7 @@ const CheckoutScreen = ({ navigation }) => {
             style={styles.input}
           />
           <TextInput
+            value={addressLine1}
             onChangeText={(e) => {
               setAddressLine1(e);
               handleChange();
@@ -114,14 +148,6 @@ const CheckoutScreen = ({ navigation }) => {
           />
           <TextInput
             onChangeText={(e) => {
-              setProvince(e);
-              handleChange();
-            }}
-            placeholder="Province"
-            style={styles.input}
-          />
-          <TextInput
-            onChangeText={(e) => {
               setPostalCode(e);
               handleChange();
             }}
@@ -129,6 +155,7 @@ const CheckoutScreen = ({ navigation }) => {
             style={styles.input}
           />
           <TextInput
+          value={phone}
             onChangeText={(e) => {
               setPhone(e);
               handleChange();

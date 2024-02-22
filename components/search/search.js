@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet,Image,Dimensions } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet, Image, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 const { width } = Dimensions.get('window');
-const cardWidth = (width - 30) ; 
-const Search = () => { 
+const cardWidth = width - 30;
+
+const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const navigation = useNavigation();
@@ -11,52 +13,43 @@ const Search = () => {
   const searchProducts = async () => {
     try {
       const response = await fetch(`http://172.20.10.2:5000/api/v1/products/search/query?name=${searchTerm}`);
-      const data = await response.json(); // Convert response to JSON
-      setSearchResults(data); // Set search results
-      //console.log(data);
+      const data = await response.json();
+      setSearchResults(data);
     } catch (error) {
       console.error('Error fetching products:', error);
     }
   };
+
   const renderProductItem = ({ item }) => (
-    <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('ProductDetail', { productId: item._id })}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => navigation.navigate('ProductDetail', { productId: item._id })}
+    >
       <View style={styles.productItem}>
-        <Image source={{ uri: item.images[0]}} style={styles.productImage} />
+        <Image source={{ uri: item.images[0] }} style={styles.productImage} />
         <Text style={styles.productTitle}>{item.title}</Text>
         <Text style={styles.productPrice}>Price: ${item.price}</Text>
       </View>
     </TouchableOpacity>
-  ); 
-
-  const renderItem = ({ item }) => (
-      <FlatList
-        style={styles.container}
-        data={searchResults}
-        numColumns={2}
-        keyExtractor={(item) => item._id.toString()}
-        renderItem={renderProductItem}
-      />
- 
   );
-
-
 
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="Search products..."
-        onChangeText={setSearchTerm}
+        onChangeText={(text) => {
+          setSearchTerm(text);
+          searchProducts();
+        }}
         value={searchTerm}
       />
-      <TouchableOpacity style={styles.button} onPress={searchProducts}>
-        <Text style={styles.buttonText}>Search</Text>
-      </TouchableOpacity>
       <FlatList
         data={searchResults}
         renderItem={renderProductItem}
         numColumns={2}
         keyExtractor={(item) => item._id}
+        contentContainerStyle={styles.flatListContainer}
       />
     </View>
   );
@@ -75,16 +68,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
   },
-  button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
   items: {
     backgroundColor: '#f9c2ff',
     padding: 20,
@@ -99,13 +82,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   item: {
-    flex:1,
+    flex: 1,
     margin: 5,
     borderRadius: 8,
     overflow: 'hidden',
-    elevation: 2, 
-    backgroundColor:'white',
-    shadowColor: '#000', 
+    elevation: 2,
+    backgroundColor: 'white',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -114,12 +97,12 @@ const styles = StyleSheet.create({
   productImage: {
     height: 170,
     borderRadius: 8,
-    maxWidth:cardWidth
+    maxWidth: cardWidth,
   },
   productTitle: {
-    marginTop:5,
+    marginTop: 5,
     textAlign: 'center',
-    maxWidth:cardWidth-20
+    maxWidth: cardWidth - 20,
   },
   productPrice: {
     fontSize: 14,
