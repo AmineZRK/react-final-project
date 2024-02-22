@@ -8,7 +8,7 @@ const ProductDetails = ({ route }) => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`http://172.17.0.1:5000/api/v1/products/${productId}`); //Replace by my IP address
+        const response = await fetch(`http://172.20.10.4:5000/api/v1/products/${productId}`); //Replace by my IP address
         if (!response.ok) {
           throw new Error('Failed to fetch product details');
         }

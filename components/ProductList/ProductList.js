@@ -9,7 +9,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://172.17.0.1:5000/api/v1/products/'); //Replace by my IP address
+        const response = await fetch('http://172.20.10.4:5000/api/v1/products/'); //Replace by my IP address
         const products = await response.json();
         console.log(products);
        
@@ -51,7 +51,7 @@ const ProductList = () => {
       <FlatList
         data={productsByCategory[item]}
         renderItem={renderProductItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item._id}
         horizontal
         showsHorizontalScrollIndicator={false}
       />
@@ -63,7 +63,7 @@ const ProductList = () => {
       <FlatList
         data={Object.keys(productsByCategory)}
         renderItem={renderCategory}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item._id}
       />
     </View>
   );

@@ -6,7 +6,7 @@ const CustomHeader = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.title}>My Store</Text>
+        <Text style={styles.title}>Case Store</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
         <Icon name='shopping-cart' type='font-awesome' color='blue' />

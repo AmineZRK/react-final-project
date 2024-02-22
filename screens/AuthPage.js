@@ -33,11 +33,11 @@ const AuthPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f0f8ff', // Marine Blue Color
     padding: 20,
-    marginTop: 50,
   },
   switchContainer: {
     flexDirection: 'row',
